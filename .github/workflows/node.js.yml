@@ -1,4 +1,4 @@
-name: React app deployement
+name: Build Gatsby Site
 
 on:
   push:
@@ -8,11 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Deploy react app to github pages
-      uses: tanwanimohit/deploy-react-to-ghpages@v1.0.1
+    - uses: actions/checkout@master
+    - name: Build Gatsby Site
+      uses: jzweifel/gatsby-cli-github-action@master
+      with:
+        gatsby-arg: build
